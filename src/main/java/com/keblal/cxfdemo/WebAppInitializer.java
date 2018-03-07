@@ -18,12 +18,16 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 
 public class WebAppInitializer implements WebApplicationInitializer {
 
+    
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         servletContext.addListener(new ContextLoaderListener(createWebAppContext()));
         addApacheCxfServlet(servletContext);
     }
 
+    /*
+    * This is the Apache CXF equivalent of Sprng MVC DispatcherServlet
+    */
     private void addApacheCxfServlet(ServletContext servletContext) {
         CXFServlet cxfServlet = new CXFServlet();
 
@@ -33,6 +37,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
         Set<String> mappingConflicts = appServlet.addMapping("/api/*");
     }
 
+    /*
+    * this the java class equivalent of dispatcher-servlet.xml file
+    */
     private WebApplicationContext createWebAppContext() {
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
         appContext.register(ApplnContext.class);
