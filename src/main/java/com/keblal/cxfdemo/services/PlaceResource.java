@@ -1,5 +1,6 @@
 package com.keblal.cxfdemo.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -28,7 +29,13 @@ public class PlaceResource {
 	public List<Place> testService(@PathParam("countryname") String name) {
 		
 		
-		return placeService.filterPlaceByCountry(name);
+		try {
+			return placeService.filterPlaceByCountry(name);
+		} catch (UnsupportedOperationException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
