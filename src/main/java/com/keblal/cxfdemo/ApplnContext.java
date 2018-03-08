@@ -28,7 +28,7 @@ import com.keblal.cxfdemo.scanners.RestServiceBeanScanner;
  */
 
 @Configuration
-@ComponentScan("com.keblal.cxfdemo.services")
+@ComponentScan("com.keblal.cxfdemo")
 public class ApplnContext {
 
 	@ApplicationPath("/")
@@ -63,7 +63,7 @@ public class ApplnContext {
 
 	private List<Object> restServiceList(ApplicationContext appContext) {						
 		// services (AKA) endpoints need to be under com.keblal.cxfdemo.services
-		return RestServiceBeanScanner.scan(appContext, "com.keblal.cxfdemo.services");
+		return RestServiceBeanScanner.scan(appContext, new String[] {"com.keblal.cxfdemo.services", "com.keblal.cxfdemo.resources"});
 	}
 
 	private List<Object> restProviderList(ApplicationContext appContext, final JacksonJsonProvider jsonProvider) {  

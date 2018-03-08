@@ -17,17 +17,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class State {
 
 @JsonProperty("states")
-private List<Place> states = null;
+private List<StateElement> states = null;
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 @JsonProperty("states")
-public List<Place> getStates() {
+public List<StateElement> getStates() {
 return states;
 }
 
 @JsonProperty("states")
-public void setStates(List<Place> states) {
+public void setStates(List<StateElement> states) {
 this.states = states;
 }
 

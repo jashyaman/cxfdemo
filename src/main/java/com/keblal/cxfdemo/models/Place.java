@@ -1,69 +1,39 @@
 package com.keblal.cxfdemo.models;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-"id",
-"name",
-"country_id"
-})
 public class Place {
+	
+	private String countryName;
+	
+	private List<String> states;
 
-@JsonProperty("id")
-private String id;
-@JsonProperty("name")
-private String name;
-@JsonProperty("country_id")
-private String countryId;
-@JsonIgnore
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	public String getCountryName() {
+		return countryName;
+	}
 
-@JsonProperty("id")
-public String getId() {
-return id;
-}
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
 
-@JsonProperty("id")
-public void setId(String id) {
-this.id = id;
-}
+	public List<String> getStates() {
+		return states;
+	}
 
-@JsonProperty("name")
-public String getName() {
-return name;
-}
+	public void setStates(List<String> states) {
+		this.states = states;
+	}
 
-@JsonProperty("name")
-public void setName(String name) {
-this.name = name;
-}
+	public Place(String countryName, List<String> states) {
+		super();
+		this.countryName = countryName;
+		this.states = states;
+	}
 
-@JsonProperty("country_id")
-public String getCountryId() {
-return countryId;
-}
-
-@JsonProperty("country_id")
-public void setCountryId(String countryId) {
-this.countryId = countryId;
-}
-
-@JsonAnyGetter
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
-
-@JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
+	public Place() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
 }
